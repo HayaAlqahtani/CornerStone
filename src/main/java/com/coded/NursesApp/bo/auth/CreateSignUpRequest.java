@@ -2,12 +2,12 @@ package com.coded.NursesApp.bo.auth;
 
 public class CreateSignUpRequest {
 
-    private String MedicalRecord;
+    private String medicalRecord;
     private String username;
     private String password;
-    private String CivilId;
+    private String civilId;
     private String age;
-    private String Address;
+    private String address;
 
     public String getUsername() {
         return username;
@@ -28,11 +28,11 @@ public class CreateSignUpRequest {
 
 
     public String getCivilId() {
-        return CivilId;
+        return civilId;
     }
 
     public void setCivilId(String civilId) {
-        CivilId = civilId;
+        this.civilId = civilId;
     }
 
     public String getAge() {
@@ -44,17 +44,17 @@ public class CreateSignUpRequest {
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
     public String getMedicalRecord() {
-        return MedicalRecord;
+        return medicalRecord;
     }
 
     public void setMedicalRecord(String medicalRecord) {
-        MedicalRecord = medicalRecord;
+        this.medicalRecord = medicalRecord;
     }
 }

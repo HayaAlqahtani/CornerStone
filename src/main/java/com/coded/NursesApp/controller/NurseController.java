@@ -1,7 +1,6 @@
 package com.coded.NursesApp.controller;
 
-import com.coded.NursesApp.entity.NursesInformation;
-import com.coded.NursesApp.reposatriy.Booking;
+import com.coded.NursesApp.entity.NurseEntity;
 import com.coded.NursesApp.service.booking.BookingService;
 import com.coded.NursesApp.service.nurse.NurseService;
 import com.coded.NursesApp.service.user.UserService;
@@ -30,20 +29,20 @@ public class NurseController {
     private BookingService bookingService;
 
     @GetMapping("/all")
-    public List<NursesInformation> getAllNurses() {
+    public List<NurseEntity> getAllNurses() {
         return nurseService.getAllNurses();
     }
 
     // Endpoint to fetch details of a specific nurse by ID
     @GetMapping("/{id}")
-    public NursesInformation getNurseById(@PathVariable Long id) {
+    public NurseEntity getNurseById(@PathVariable Long id) {
         return nurseService.getNurseById(id);
     }
 
     // Endpoint to book a nurse
     @PostMapping("/book/{nurseId}/{userId}")
     public ResponseEntity<String> bookNurse(@PathVariable Long nurseId, @PathVariable Long userId) {
-        NursesInformation nurse = nurseService.getNurseById(nurseId);
+        NurseEntity nurse = nurseService.getNurseById(nurseId);
         User user = userService.getUserById(userId);
 
         if (nurse == null || user == null) {

@@ -1,60 +1,37 @@
 package com.coded.NursesApp.service.booking;
 
-import com.coded.NursesApp.entity.NursesInformation;
-import com.coded.NursesApp.reposatriy.Booking;
-import com.coded.NursesApp.service.nurse.NurseService;
-import com.coded.NursesApp.service.user.UserService;
-import org.apache.catalina.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.coded.NursesApp.entity.BookEntity;
+import com.coded.NursesApp.entity.NurseEntity;
+import com.coded.NursesApp.entity.UserEntity;
+import com.coded.NursesApp.reposatriy.BookRepository;
+import com.coded.NursesApp.reposatriy.NurseRepository;
+import com.coded.NursesApp.reposatriy.UserRepository;
+import com.coded.NursesApp.service.auth.UserDetailUtil;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 @Service
 public class BookingServiceImpl implements BookingService {
-
-    @Autowired
-    private Booking bookingRepository;
-
-    @Autowired
-    private NurseService nurseService;
-
-    @Autowired
-    private UserService userService;
-
-    @Override
-    public Booking bookNurse(Long nurseId, Long userId) {
-        return null;
+    private final BookRepository bookRepositoryRepository;
+    private final UserRepository userRepository;
+    private final NurseRepository nurseRepository;
+    public BookingServiceImpl(BookRepository bookRepositoryRepository, UserRepository userRepository, NurseRepository nurseRepository) {
+        this.bookRepositoryRepository = bookRepositoryRepository;
+        this.userRepository = userRepository;
+        this.nurseRepository = nurseRepository;
     }
 
     @Override
-    public List<Booking> getUserBookings(Long userId) {
-        return null;
+    public void SaveBook(Long nurseID) {
+        BookEntity bookEntity=new BookEntity();
+        UserEntity userEntity= userRepository.findById(UserDetailUtil.userDetails().getId())
+                        .orElseThrow();
+        NurseEntity nurseEntity = nurseRepository.findById(nurseID)
+                        .orElseThrow();
+        bookEntity.setUser(userEntity);
+        bookEntity.setNurse(nurseEntity);
+        bookEntity.setBookingDate(LocalDate.now());
+        bookRepositoryRepository.save(bookEntity);
     }
 
-//    @Override
-//    public Booking bookNurse(Long nurseId, Long userId) {
-//        NursesInformation nurse = nurseService.getNurseById(nurseId);
-//        User user = userService.getUserById(userId);
-//
-//        if (nurse == null || user == null) {
-//            throw new RuntimeException("Nurse or user not found");
-//        }
-//
-//        if (!nurseService.isNurseAvailableForBooking(nurseId)) {
-//            throw new RuntimeException("Nurse is not available for booking");
-//        }
-//
-//        Booking booking = new Booking();
-//        booking.setNurse(nurse);
-//        booking.setUser(user);
-//        booking.setBookingDate(new Date());
-//
-//        return bookingRepository.save(booking);
-//         }
-//
-//        @Override
-//        public List<Booking> getUserBookings (Long userId){
-//            return bookingRepository.findByUserId(userId);
-//        }
 }

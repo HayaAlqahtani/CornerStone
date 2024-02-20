@@ -1,14 +1,16 @@
 package com.coded.NursesApp.service.nurse;
 
-import com.coded.NursesApp.entity.NursesInformation;
+import com.coded.NursesApp.entity.NurseEntity;
+import org.springframework.stereotype.Service;
 
 
 import java.util.List;
 
+@Service
 public interface NurseService {
-    List<NursesInformation> getAllNurses();
+    List<NurseEntity> getAllNurses();
 
-    NursesInformation getNurseById(Long id);
+    NurseEntity getNurseById(Long id);
 
     boolean isNurseAvailableForBooking(Long nurseId);
 

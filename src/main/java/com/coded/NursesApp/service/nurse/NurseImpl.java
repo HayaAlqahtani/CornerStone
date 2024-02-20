@@ -1,7 +1,7 @@
 package com.coded.NursesApp.service.nurse;
 
-import com.coded.NursesApp.entity.NursesInformation;
-import com.coded.NursesApp.reposatriy.Nurses;
+import com.coded.NursesApp.entity.NurseEntity;
+import com.coded.NursesApp.reposatriy.NurseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,26 +13,26 @@ import java.util.Optional;
 public class NurseImpl implements NurseService {
 
     @Autowired
-    private Nurses nurses;
+    private NurseRepository nurses;
 
     @Override
-    public List<NursesInformation> getAllNurses() {
+    public List<NurseEntity> getAllNurses() {
         return nurses.findAll();
     }
 
     @Override
-    public NursesInformation getNurseById(Long id) {
-        Optional<NursesInformation> optionalNurse = nurses.findById(id);
+    public NurseEntity getNurseById(Long id) {
+        Optional<NurseEntity> optionalNurse = nurses.findById(id);
         return optionalNurse.orElse(null);
 
     }
 
     @Override
     public boolean isNurseAvailableForBooking(Long nurseId) {
-        Optional<NursesInformation> optionalNurse = nurses.findById(nurseId);
+        Optional<NurseEntity> optionalNurse = nurses.findById(nurseId);
 
         if (optionalNurse.isPresent()) {
-            NursesInformation nurse = optionalNurse.get();
+            NurseEntity nurse = optionalNurse.get();
             return nurse.isAvailable();
         }
 
@@ -42,10 +42,10 @@ public class NurseImpl implements NurseService {
 
     @Override
     public void updateNurseAvailability(Long nurseId, boolean available) {
-        Optional<NursesInformation> optionalNurse = nurses.findById(nurseId);
+        Optional<NurseEntity> optionalNurse = nurses.findById(nurseId);
 
         if (optionalNurse.isPresent()) {
-            NursesInformation nurse = optionalNurse.get();
+            NurseEntity nurse = optionalNurse.get();
             nurse.setAvailable(available);
             nurses.save(nurse);
         }

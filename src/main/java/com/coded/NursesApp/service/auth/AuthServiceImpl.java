@@ -51,6 +51,7 @@ public class AuthServiceImpl implements AuthService{
         user.setCivilId(createSignupRequest.getCivilId());
         user.setAge(createSignupRequest.getAge());
         user.setMedicalRecord(createSignupRequest.getMedicalRecord());
+        user.setAddress(createSignupRequest.getAddress());
         user.setPassword(bCryptPasswordEncoder.encode(createSignupRequest.getPassword()));
         userRepository.save(user);
     }

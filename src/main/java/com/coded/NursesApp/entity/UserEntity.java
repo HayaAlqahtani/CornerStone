@@ -1,8 +1,6 @@
 package com.coded.NursesApp.entity;
 
 
-import com.coded.NursesApp.bo.patient.CreateUserDetails;
-
 import javax.persistence.*;
 
 @Table(name = "account_user")
@@ -17,16 +15,16 @@ public class UserEntity  {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "CivilId", nullable = false)
-    private String CivilId;
+    @Column(name = "civilId", nullable = false)
+    private String civilId;
     @Column(name = "age", nullable = false)
     private String age;
 
-    @Column(name = "Address", nullable = false)
-    private String Address;
+    @Column(name = "address", nullable = false)
+    private String address;
 
-    @Column(name = "MedicalRecord", nullable = false)
-    private String MedicalRecord;
+    @Column(name = "medicalRecord", nullable = false)
+    private String medicalRecord;
 
     @OneToOne
     @JoinColumn(name = "role_id")
@@ -57,11 +55,11 @@ public class UserEntity  {
     }
 
     public String getCivilId() {
-        return CivilId;
+        return civilId;
     }
 
     public void setCivilId(String civilId) {
-        CivilId = civilId;
+        this.civilId = civilId;
     }
 
     public String getAge() {
@@ -73,19 +71,19 @@ public class UserEntity  {
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public String getMedicalRecord() {
-        return MedicalRecord;
+        return medicalRecord;
     }
 
     public void setMedicalRecord(String medicalRecord) {
-        MedicalRecord = medicalRecord;
+        this.medicalRecord = medicalRecord;
     }
 
     public RoleEntity getRoles() {

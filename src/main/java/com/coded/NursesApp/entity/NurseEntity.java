@@ -4,7 +4,7 @@ package com.coded.NursesApp.entity;
 import javax.persistence.*;
 
 @Entity
-public class NursesInformation {
+public class NurseEntity {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,19 +19,11 @@ public class NursesInformation {
     @Column(name = "gender", nullable = false)
     private String gender;
 
-    public NursesInformation(Long id, String name, String age, String rating, String gender, String workingHours, boolean available, String specialized) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.rating = rating;
-        this.gender = gender;
-        WorkingHours = workingHours;
-        this.available = available;
-        this.specialized = specialized;
-    }
-
-    @Column(name = "Working Hours", nullable = false)
+    @Column(name = "Working_Hours", nullable = false)
     private String WorkingHours;
+
+    @Column(name = "specialized", nullable = false)
+    private String specialized;
 
     public boolean isAvailable() {
         return available;
@@ -51,11 +43,6 @@ public class NursesInformation {
     public void setSpecialized(String specialized) {
         this.specialized = specialized;
     }
-
-    @Column(name = "specialized", nullable = false)
-    private String specialized;
-
-
 
     public Long getId() {
         return id;
