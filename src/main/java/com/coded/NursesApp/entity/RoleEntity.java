@@ -1,7 +1,8 @@
 package com.coded.NursesApp.entity;
 
 import com.coded.NursesApp.util.enums.Roles;
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "role")

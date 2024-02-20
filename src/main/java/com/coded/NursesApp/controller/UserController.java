@@ -6,6 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/user")
+
 public class UserController {
     private final UserService userService; //injection this is the constructor with similar class name
 

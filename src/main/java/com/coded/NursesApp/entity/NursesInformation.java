@@ -1,10 +1,9 @@
 package com.coded.NursesApp.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
+import javax.persistence.*;
+
+@Entity
 public class NursesInformation {
     @Id
     @Column(name = "id", nullable = false)
@@ -19,6 +18,43 @@ public class NursesInformation {
     private String rating;
     @Column(name = "gender", nullable = false)
     private String gender;
+
+    public NursesInformation(Long id, String name, String age, String rating, String gender, String workingHours, boolean available, String specialized) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.rating = rating;
+        this.gender = gender;
+        WorkingHours = workingHours;
+        this.available = available;
+        this.specialized = specialized;
+    }
+
+    @Column(name = "Working Hours", nullable = false)
+    private String WorkingHours;
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    private boolean available = true;
+
+
+    public String getSpecialized() {
+        return specialized;
+    }
+
+    public void setSpecialized(String specialized) {
+        this.specialized = specialized;
+    }
+
+    @Column(name = "specialized", nullable = false)
+    private String specialized;
+
 
 
     public Long getId() {
@@ -59,6 +95,13 @@ public class NursesInformation {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+    public String getWorkingHours() {
+        return WorkingHours;
+    }
+
+    public void setWorkingHours(String workingHours) {
+        WorkingHours = workingHours;
     }
 }
 

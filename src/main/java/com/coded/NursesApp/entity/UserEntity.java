@@ -1,10 +1,13 @@
 package com.coded.NursesApp.entity;
 
-import jakarta.persistence.*;
+
+import com.coded.NursesApp.bo.patient.CreateUserDetails;
+
+import javax.persistence.*;
 
 @Table(name = "account_user")
 @Entity
-public class UserEntity {
+public class UserEntity  {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)

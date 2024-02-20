@@ -3,6 +3,7 @@ package com.coded.NursesApp.service.user;
 import com.coded.NursesApp.bo.patient.CreateUserDetails;
 import com.coded.NursesApp.entity.UserEntity;
 import com.coded.NursesApp.reposatriy.UserRepository;
+import org.apache.catalina.User;
 import org.hibernate.engine.spi.Status;
 import org.springframework.stereotype.Service;
 
@@ -27,10 +28,9 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public List<String> getAllusersWithStrongPassword() {
+    public User getUserById(Long userId) {
         return null;
     }
-
 
     @Override
     public List<String> getALlUsersWithStrongPassword() {
