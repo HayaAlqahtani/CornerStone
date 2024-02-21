@@ -1,36 +1,16 @@
-package com.coded.NursesApp.entity;
-
+package com.coded.NursesApp.bo.nurse;
 
 import com.coded.NursesApp.util.enums.Gender;
 import com.coded.NursesApp.util.enums.Hours;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "nurse")
-public class NurseEntity {
-    @Id
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CreateNurseRequest {
     private Long id;
-    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "age", nullable = false)
     private String age;
-
-    @Column(name = "rating", nullable = false)
     private String rating;
-    @Column(name = "gender", nullable = false)
-    @Enumerated(EnumType.STRING)
     private Gender gender;
-
-    @Column(name = "Working_Hours", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Hours workingHours;
-
-    @Column(name = "specialized", nullable = false)
+    private Hours WorkingHours;
     private String specialized;
-
 
     public Long getId() {
         return id;
@@ -73,11 +53,11 @@ public class NurseEntity {
     }
 
     public Hours getWorkingHours() {
-        return workingHours;
+        return WorkingHours;
     }
 
     public void setWorkingHours(Hours workingHours) {
-        this.workingHours = workingHours;
+        WorkingHours = workingHours;
     }
 
     public String getSpecialized() {
@@ -87,8 +67,4 @@ public class NurseEntity {
     public void setSpecialized(String specialized) {
         this.specialized = specialized;
     }
-
 }
-
-
-

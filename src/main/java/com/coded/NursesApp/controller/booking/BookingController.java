@@ -1,5 +1,6 @@
-package com.coded.NursesApp.controller;
+package com.coded.NursesApp.controller.booking;
 
+import com.coded.NursesApp.entity.BookEntity;
 import com.coded.NursesApp.reposatriy.BookRepository;
 import com.coded.NursesApp.service.booking.BookingService;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +24,13 @@ public class BookingController {
         return ResponseEntity.ok("Booking create successfully");
     }
 
-    @GetMapping("/user/{userId}")
-    public List<BookRepository> getUserBookings(@PathVariable Long userId) {
-        //return bookingService.getUserBookings(userId);
-        return null;
+    @GetMapping("/get-book-details")
+    public ResponseEntity<BookEntity> getBookDetail(@RequestParam Long bookId){
+        return ResponseEntity.ok(bookingService.getBookDetails(bookId));
+    }
+
+    @GetMapping("/get-all-book-details")
+    public ResponseEntity<List<BookEntity>> getAllBookDetails(){
+        return ResponseEntity.ok(bookingService.getAllBookingDetails());
     }
 }

@@ -1,4 +1,4 @@
-package com.coded.NursesApp.controller;
+package com.coded.NursesApp.controller.user;
 
 import com.coded.NursesApp.bo.patient.CreateUserDetails;
 import com.coded.NursesApp.service.user.UserService;

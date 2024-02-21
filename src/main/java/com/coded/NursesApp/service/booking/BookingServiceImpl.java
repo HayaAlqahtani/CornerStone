@@ -10,6 +10,8 @@ import com.coded.NursesApp.service.auth.UserDetailUtil;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Service
 public class BookingServiceImpl implements BookingService {
     private final BookRepository bookRepositoryRepository;
@@ -32,6 +34,16 @@ public class BookingServiceImpl implements BookingService {
         bookEntity.setNurse(nurseEntity);
         bookEntity.setBookingDate(LocalDate.now());
         bookRepositoryRepository.save(bookEntity);
+    }
+
+    @Override
+    public BookEntity getBookDetails(Long bookId) {
+        return bookRepositoryRepository.findById(bookId).orElseThrow();
+    }
+
+    @Override
+    public List<BookEntity> getAllBookingDetails() {
+        return bookRepositoryRepository.findAll();
     }
 
 }

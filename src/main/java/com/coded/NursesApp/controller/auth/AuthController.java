@@ -1,4 +1,4 @@
-package com.coded.NursesApp.controller.authcontroller;
+package com.coded.NursesApp.controller.auth;
 
 import com.coded.NursesApp.bo.auth.AuthenticationResponse;
 import com.coded.NursesApp.bo.auth.CreateLoginRequest;

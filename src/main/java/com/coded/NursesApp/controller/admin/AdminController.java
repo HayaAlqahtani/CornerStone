@@ -1,4 +1,4 @@
-package com.coded.NursesApp.controller;
+package com.coded.NursesApp.controller.admin;
 
 import com.coded.NursesApp.entity.UserEntity;
 import com.coded.NursesApp.service.admin.AdminService;
