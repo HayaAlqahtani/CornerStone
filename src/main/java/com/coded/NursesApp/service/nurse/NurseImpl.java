@@ -43,12 +43,11 @@ public class NurseImpl implements NurseService {
     @Override
     public void createNurse(CreateNurseRequest createNurseRequest) {
         NurseEntity nurse = new NurseEntity();
-        nurse.setId(createNurseRequest.getId());
         nurse.setName(createNurseRequest.getName());
         nurse.setAge(createNurseRequest.getAge());
-        nurse.setWorkingHours(createNurseRequest.getWorkingHours());
+        nurse.setWorkingHours(Hours.valueOf(createNurseRequest.getWorkingHours()));
         nurse.setSpecialized(createNurseRequest.getSpecialized());
         nurse.setRating(createNurseRequest.getRating());
-        nurse.setGender(createNurseRequest.getGender());
+        nurse.setGender(Gender.valueOf(createNurseRequest.getGender()));
         nurseRepository.save(nurse);    }
 }

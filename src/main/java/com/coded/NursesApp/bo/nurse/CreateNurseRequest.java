@@ -4,21 +4,13 @@ import com.coded.NursesApp.util.enums.Gender;
 import com.coded.NursesApp.util.enums.Hours;
 
 public class CreateNurseRequest {
-    private Long id;
     private String name;
     private String age;
     private String rating;
-    private Gender gender;
-    private Hours WorkingHours;
+    private String gender;
+    private String WorkingHours;
     private String specialized;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -44,19 +36,19 @@ public class CreateNurseRequest {
         this.rating = rating;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public Hours getWorkingHours() {
+    public String getWorkingHours() {
         return WorkingHours;
     }
 
-    public void setWorkingHours(Hours workingHours) {
+    public void setWorkingHours(String workingHours) {
         WorkingHours = workingHours;
     }
 
