@@ -49,5 +49,6 @@ public class NurseImpl implements NurseService {
         nurse.setSpecialized(createNurseRequest.getSpecialized());
         nurse.setRating(createNurseRequest.getRating());
         nurse.setGender(Gender.valueOf(createNurseRequest.getGender()));
-        nurseRepository.save(nurse);    }
+        nurseRepository.save(nurse);
+    }
 }

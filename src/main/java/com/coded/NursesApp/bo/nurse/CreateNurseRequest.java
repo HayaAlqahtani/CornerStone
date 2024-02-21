@@ -1,14 +1,11 @@
 package com.coded.NursesApp.bo.nurse;
 
-import com.coded.NursesApp.util.enums.Gender;
-import com.coded.NursesApp.util.enums.Hours;
-
 public class CreateNurseRequest {
     private String name;
     private String age;
     private String rating;
     private String gender;
-    private String WorkingHours;
+    private String workingHours;
     private String specialized;
 
 
@@ -45,11 +42,11 @@ public class CreateNurseRequest {
     }
 
     public String getWorkingHours() {
-        return WorkingHours;
+        return workingHours;
     }
 
     public void setWorkingHours(String workingHours) {
-        WorkingHours = workingHours;
+        this.workingHours = workingHours;
     }
 
     public String getSpecialized() {
