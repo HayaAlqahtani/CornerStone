@@ -49,7 +49,7 @@ public class NurseController {
     }
 
     // Endpoint to fetch details of a specific nurse by ID
-    @GetMapping("/{id}")
+    @GetMapping("/id")
     public NurseEntity getNurseById(@PathVariable Long id) {
         return nurseService.getNurseById(id);
     }
